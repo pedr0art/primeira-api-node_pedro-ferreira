@@ -1,44 +1,43 @@
-Perfeito! Aqui está uma versão pronta em Markdown, pronta para colar direto no **Add README** do GitHub:
+Servidor de Usuários em Node.js
 
-````markdown
-# Servidor de Usuários em Node.js
+Este é um servidor simples em Node.js que permite armazenar e listar usuários em memória. Ele utiliza apenas o módulo nativo http, sem frameworks adicionais.
 
-Este é um servidor simples em Node.js que permite armazenar e listar usuários em memória.  
-Ele utiliza apenas o módulo nativo `http`, sem frameworks adicionais.
+Funcionalidades
 
-## Funcionalidades
+Listar todos os usuários cadastrados.
 
-- Listar todos os usuários cadastrados.
-- Adicionar novos usuários com `nome` e `email`.
-- Retorna mensagens de erro para dados inválidos ou rotas inexistentes.
+Adicionar novos usuários com nome e email.
 
-## Requisitos
+Retorna mensagens de erro para dados inválidos ou rotas inexistentes.
 
-- Node.js (versão 14 ou superior recomendada)
+Requisitos
 
-## Instalação e execução
+Node.js (versão 14 ou superior recomendada)
 
-1. Clone o repositório ou baixe o arquivo `server.js`.
-2. Abra o terminal na pasta do projeto.
-3. Execute o servidor:
+Instalação
 
-```bash
+Clone o repositório ou baixe o arquivo server.js.
+
+Abra o terminal na pasta do projeto.
+
+Execute o servidor:
+
 node server.js
-````
 
-4. O servidor estará rodando em: `http://localhost:3000`
 
-## Rotas
+O servidor estará rodando em: http://localhost:3000
 
-### 1. Listar usuários
+Rotas
+1. Listar usuários
 
-* **URL:** `/usuarios`
-* **Método:** `GET`
-* **Descrição:** Retorna todos os usuários cadastrados.
+URL: /usuarios
 
-**Exemplo de resposta:**
+Método: GET
 
-```json
+Descrição: Retorna todos os usuários cadastrados.
+
+Exemplo de resposta:
+
 [
   {
     "id": 1,
@@ -46,42 +45,39 @@ node server.js
     "email": "joao@email.com"
   }
 ]
-```
 
-### 2. Adicionar usuário
+2. Adicionar usuário
 
-* **URL:** `/usuarios`
-* **Método:** `POST`
-* **Descrição:** Adiciona um novo usuário com `nome` e `email`.
+URL: /usuarios
 
-**Exemplo de requisição (JSON no body):**
+Método: POST
 
-```json
+Descrição: Adiciona um novo usuário com nome e email.
+
+Exemplo de requisição (JSON no body):
+
 {
   "nome": "Maria",
   "email": "maria@email.com"
 }
-```
 
-**Exemplo de resposta:**
 
-```json
+Exemplo de resposta:
+
 {
   "mensagem": "Usuário adicionado com sucesso"
 }
-```
 
-**Erros possíveis:**
 
-* `400` – JSON inválido ou dados incompletos (`nome` ou `email` ausentes).
-* `404` – Rota não encontrada.
+Erros possíveis:
 
-## Observações
+400 – Caso o JSON enviado seja inválido ou não contenha nome e email.
 
-* Os usuários são armazenados apenas em memória; ao reiniciar o servidor, todos os dados são perdidos.
-* Para testes, você pode usar ferramentas como [Postman](https://www.postman.com/) ou `curl`.
+404 – Rota não encontrada.
 
-```
+Observações
 
-Se você quiser, posso também criar **uma versão ainda mais enxuta**, ótima para quem só quer instruções rápidas para rodar e testar. Quer que eu faça?
-```
+Os usuários são armazenados apenas em memória; ao reiniciar o servidor, todos os dados são perdidos.
+
+Para testes, você pode usar ferramentas como Postman
+ ou curl.
