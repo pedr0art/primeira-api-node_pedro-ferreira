@@ -1,43 +1,39 @@
-Servidor de Usuários em Node.js
+# Servidor de Usuários em Node.js
 
-Este é um servidor simples em Node.js que permite armazenar e listar usuários em memória. Ele utiliza apenas o módulo nativo http, sem frameworks adicionais.
+Este é um servidor simples em Node.js que permite armazenar e listar usuários em memória. Ele utiliza apenas o módulo nativo `http`, sem frameworks adicionais.
 
-Funcionalidades
+## Funcionalidades
 
-Listar todos os usuários cadastrados.
+* Listar todos os usuários cadastrados.
+* Adicionar novos usuários com `nome` e `email`.
+* Retorna mensagens de erro para dados inválidos ou rotas inexistentes.
 
-Adicionar novos usuários com nome e email.
+## Requisitos
 
-Retorna mensagens de erro para dados inválidos ou rotas inexistentes.
+* Node.js (versão 14 ou superior recomendada)
 
-Requisitos
+## Instalação
 
-Node.js (versão 14 ou superior recomendada)
+1. Clone o repositório ou baixe o arquivo `server.js`.
+2. Abra o terminal na pasta do projeto.
+3. Execute o servidor:
 
-Instalação
-
-Clone o repositório ou baixe o arquivo server.js.
-
-Abra o terminal na pasta do projeto.
-
-Execute o servidor:
-
+```bash
 node server.js
+```
 
+4. O servidor estará rodando em: `http://localhost:3000`
 
-O servidor estará rodando em: http://localhost:3000
+## Rotas
 
-Rotas
-1. Listar usuários
+### 1. Listar usuários
 
-URL: /usuarios
+* **URL:** `/usuarios`
+* **Método:** `GET`
+* **Descrição:** Retorna todos os usuários cadastrados.
+* **Exemplo de resposta:**
 
-Método: GET
-
-Descrição: Retorna todos os usuários cadastrados.
-
-Exemplo de resposta:
-
+```json
 [
   {
     "id": 1,
@@ -45,39 +41,37 @@ Exemplo de resposta:
     "email": "joao@email.com"
   }
 ]
+```
 
-2. Adicionar usuário
+### 2. Adicionar usuário
 
-URL: /usuarios
+* **URL:** `/usuarios`
+* **Método:** `POST`
+* **Descrição:** Adiciona um novo usuário com `nome` e `email`.
+* **Exemplo de requisição (JSON no body):**
 
-Método: POST
-
-Descrição: Adiciona um novo usuário com nome e email.
-
-Exemplo de requisição (JSON no body):
-
+```json
 {
   "nome": "Maria",
   "email": "maria@email.com"
 }
+```
 
+* **Exemplo de resposta:**
 
-Exemplo de resposta:
-
+```json
 {
   "mensagem": "Usuário adicionado com sucesso"
 }
+```
 
+* **Erros possíveis:**
 
-Erros possíveis:
+  * `400` – Caso o JSON enviado seja inválido ou não contenha `nome` e `email`.
+  * `404` – Rota não encontrada.
 
-400 – Caso o JSON enviado seja inválido ou não contenha nome e email.
+## Observações
 
-404 – Rota não encontrada.
+* Os usuários são armazenados apenas em memória; ao reiniciar o servidor, todos os dados são perdidos.
+* Para testes, você pode usar ferramentas como [Postman](https://www.postman.com/) ou `curl`.
 
-Observações
-
-Os usuários são armazenados apenas em memória; ao reiniciar o servidor, todos os dados são perdidos.
-
-Para testes, você pode usar ferramentas como Postman
- ou curl.
